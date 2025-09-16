@@ -1,0 +1,218 @@
+/* ---------- GENERAL ---------- */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #1b1b1be9;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- TOP BAR ---------- */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #111;
+  padding: 10px 20px;
+}
+
+.top-bar .logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.top-bar .social-icons a {
+  color: #fff;
+  margin-left: 12px;
+  font-size: 1.3rem;
+  transition: color 0.3s;
+}
+
+.top-bar .social-icons a:hover {
+  color: #e1904d;
+}
+
+/* ---------- NAVBAR ---------- */
+.navbar {
+  padding: 0.5rem 1rem;
+}
+
+.navbar a.nav-link {
+  color: #fff;
+}
+
+.navbar a.nav-link:hover,
+.navbar a.nav-link.active {
+  color: #ffa16b;
+}
+
+/* ---------- PRODUCT CARDS (REVISED) ---------- */
+.product-card {
+  background-color: #2a2a2e;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #444;
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 25px rgba(252, 109, 0, 0.4);
+}
+
+.product-image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.product-image {
+  width: 100%;
+  height: 350px;
+  /* زيادة ارتفاع الصورة */
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.1);
+}
+
+.product-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.product-card:hover .product-overlay {
+  opacity: 1;
+}
+
+.overlay-btn {
+  background-color: #fc6d00;
+  border: none;
+  color: white;
+  font-weight: bold;
+  transform: translateY(20px);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.product-card:hover .overlay-btn {
+  transform: translateY(0);
+}
+
+.overlay-btn:hover {
+  background-color: #e15f00;
+  color: white;
+}
+
+.product-details {
+  padding: 15px;
+  text-align: center;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-title {
+  font-size: 1.2rem;
+  /* تكبير حجم الخط */
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.product-price {
+  font-size: 1.3rem;
+  /* تكبير حجم الخط */
+  color: #ed7a32;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.product-options {
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+  align-items: center;
+}
+
+.product-options .form-select,
+.product-options .form-control {
+  background-color: #444;
+  color: #fff;
+  border: 1px solid #666;
+  font-size: 0.9rem;
+}
+
+.product-options label {
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+  display: block;
+}
+
+/* ---------- حذف القواعد القديمة وغير الضرورية ---------- */
+/* تم حذف كتل CSS القديمة من هنا، بما في ذلك .products-row و .product-card المكررة والاستعلامات الإعلامية القديمة */
+
+/* ---------- SECTIONS TITLES ---------- */
+h2 {
+  color: #ed7a32;
+  font-weight: bold;
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+  text-align: center;
+  text-shadow: 0px 0px 10px #7b6f6fbc;
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #fbf9f9;
+  color: #070707;
+}
+
+/* ---------- TOAST NOTIFICATION ---------- */
+.toast-notification {
+    background-color: #2a2a2e;
+    color: #fff;
+    padding: 15px 20px;
+    border-radius: 8px;
+    border-left: 5px solid #fc6d00;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.5s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 300px; /* تحديد عرض أدنى */
+}
+
+.toast-notification.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.toast-notification i {
+    color: #fc6d00;
+    font-size: 1.5rem;
+}
+
+/* ---------- RESPONSIVE (إذا احتجت لتعديلات إضافية) ---------- */
+/* حاليًا، يعتمد التصميم على شبكة Bootstrap ولا يحتاج لتعديلات هنا */
