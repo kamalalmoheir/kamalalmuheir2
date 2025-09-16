@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALMOMAYAZ | سلة المشتريات</title>
+    <link rel="stylesheet" href="cpt.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+    <div id="cart-notification"></div>
+
+    <header class="header">
+        <nav class="navbar">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="HOME.html">ALMOMAYAZ </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container main-content">
+        <h2 class="section-title">سلة المشتريات</h2>
+        <div class="card cart-summary-card">
+            <table class="table shopping-cart-table" id="cart-table">
+                <thead>
+                    <tr>
+                        <th>المنتج</th>
+                        <th>الكمية</th>
+                        <th>السعر</th>
+                        <th>الإجمالي</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3" class="text-end"><strong>المجموع الكلي:</strong></td>
+                        <td id="grand-total">0</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div class="text-center mt-3">
+                <button class="btn btn-clear" onclick="clearCart()">تفريغ السلة</button>
+            </div>
+        </div>
+
+        <div class="card payment-card mt-5">
+            <h3 class="section-title">اختر طريقة الدفع</h3>
+            <div class="payment-options">
+                <button class="btn payment-method-btn" onclick="selectPaymentMethod('cash-on-delivery')">
+                    <i class="fa-solid fa-hand-holding-dollar"></i>
+                    <span>الدفع عند الاستلام</span>
+                </button>
+                <button class="btn payment-method-btn" onclick="selectPaymentMethod('bank-transfer')">
+                    <i class="fa-solid fa-credit-card"></i>
+                    <span>عبر حساب مصرفي</span>
+                </button>
+                <button class="btn payment-method-btn" onclick="selectPaymentMethod('alkarimi-transfer')">
+                    <i class="fa-solid fa-building-columns"></i>
+                    <span>عبر الكريمي</span>
+                </button>
+            </div>
+
+            <div id="cash-on-delivery-details" class="payment-details mt-4" style="display:none;">
+                <p>سيتم التواصل معكم لتأكيد الطلب والتوصيل.</p>
+            </div>
+
+            <div id="bank-transfer-details" class="payment-details mt-4" style="display:none;">
+                <p class="instruction-text">بعد إتمام التحويل، يرجى إرسال إثبات الدفع (صورة من الإيصال) على الواتساب:
+                    <strong>999 992 774</strong>
+                </p>
+                <div class="accounts-list">
+                    <div class="account-item">
+                        <h6><i class="fa-solid fa-flag-YEM"></i> حساب يمني</h6>
+                        <p><strong>بنك الكريمي </strong> بنك السعيد</p>
+                        <p><strong>رقم الحساب:</strong> 1234567890</p>
+                    </div>
+                    <div class="account-item">
+                        <h6><i class="fa-solid fa-flag-SAU"></i> حساب سعودي</h6>
+                        <p><strong>بنك الكريمي </strong> [اسم البنك]</p>
+                        <p><strong>رقم الحساب:</strong> 421901064</p>
+                    </div>
+                    <div class="account-item">
+                        <h6><i class="fa-solid fa-dollar-sign"></i> حساب دولار</h6>
+                        <p><strong>بنك الكريمي </strong> [اسم البنك]</p>
+                        <p><strong>رقم الحساب:</strong> 221221396</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="alkarimi-transfer-details" class="payment-details mt-4" style="display:none;">
+                <p class="instruction-text">يرجى إيداع المبلغ في حسابنا عبر الكريمي وإرسال إثبات الدفع (صورة من الإيصال)
+                    على الواتساب: <strong>999 992 774</strong></p>
+                <div class="account-item">
+                    <h6><i class="fa-solid fa-building-columns"></i> حساب الكريمي</h6>
+                    <p><strong>رقم الحساب:</strong> 🇾🇪 121436430 🇾🇪</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <p>يرجى مراجعة تفاصيل الطلب قبل التأكيد.</p>
+                <button class="btn btn-confirm">تأكيد الطلب</button>
+            </div>
+        </div>
+
+        <div class="card sizes-card mt-5">
+            <h3 class="section-title">جدول المقاسات المتاحة</h3>
+            <div class="sizes-info">
+                <div class="size-category">
+                    <h4>مقاسات البنطلون</h4>
+                    <div class="size-list">
+                        <span>30</span><span>32</span><span>34</span><span>36</span><span>38</span>
+                    </div>
+                </div>
+                <div class="size-category">
+                    <h4>مقاسات الشميز</h4>
+                    <div class="size-list">
+                        <span>S</span><span>M</span><span>L</span><span>XL</span><span>2XL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>شكراً لتسوقكم معنا...</p>
+
+        <p>للاستفسارات، يرجى التواصل معنا عبر الواتساب: <strong>999 992 999 992 774 967+</strong></p>
+        <p>جميع الحقوق محفوظة © 2025 ALMOMAYAZ</p>
+    </footer>
+
+    <script>
+        function displayCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const tbody = document.querySelector('#cart-table tbody');
+            tbody.innerHTML = '';
+            let grandTotal = 0;
+
+            if (cart.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="4">سلة المشتريات فارغة</td></tr>`;
+            } else {
+                cart.forEach(item => {
+                    grandTotal += item.total;
+                    tbody.innerHTML += `
+                        <tr>
+                            <td>${item.name}</td>
+                            <td>${item.quantity}</td>
+                            <td>${item.price}$</td>
+                            <td>${item.total}$</td>
+                        </tr>
+                    `;
+                });
+            }
+            document.getElementById('grand-total').textContent = grandTotal + '$';
+        }
+
+        function clearCart() {
+            localStorage.removeItem('cart');
+            displayCart();
+        }
+
+        function selectPaymentMethod(method) {
+            document.querySelectorAll('.payment-details').forEach(details => details.style.display = 'none');
+            document.getElementById(`${method}-details`).style.display = 'block';
+        }
+
+        displayCart();
+    </script>
+</body>
+
+</html>
